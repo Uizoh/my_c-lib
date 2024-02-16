@@ -1,5 +1,4 @@
-#include "mylib.h"
-#include <stdio.h>
+#include "my_defaults.h"
 #include <stdlib.h>
 
 typedef struct String {
@@ -13,6 +12,7 @@ typedef struct String {
 String string_new(u32 init_size) {
     if (init_size == NULL)
         init_size = 10;
+
     String temp = malloc(sizeof(struct String));
     temp->__str = malloc(init_size);
     temp->len = 1;
@@ -66,22 +66,4 @@ void string_free(String self) {
     self->__str = NULL;
     free(self);
     self = NULL;
-}
-
-int main() {
-    String name = string_from("Saba");
-
-    printf("%s\n", string_get(name));
-
-    printf("%s\n%d, %d\n", string_get(name), name->len, name->cap);
-
-    string_set(name,
-               "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssd");
-
-    printf("%s\n%d, %d\n", string_get(name), name->len, name->cap);
-    string_set(name, "abc");
-    string_resize(name);
-    printf("%s\n%d, %d\n", string_get(name), name->len, name->cap);
-    printf("%ld\n", strlens("abc"));
-    return 0;
 }

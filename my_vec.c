@@ -1,4 +1,4 @@
-#include "mylib.h"
+#include "my_defaults.h"
 #include <stdlib.h>
 
 typedef struct Vec {

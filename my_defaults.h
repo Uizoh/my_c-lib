@@ -1,3 +1,6 @@
+#ifndef MY_LIB_
+#define MY_LIB_
+
 #include <assert.h>
 #include <stdbool.h>
 #include <string.h>
@@ -20,3 +23,5 @@ typedef uint64_t u64;
 typedef float f32;
 typedef double f64;
 typedef const char* str;
+
+#endif
