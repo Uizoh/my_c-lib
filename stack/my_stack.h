@@ -3,6 +3,15 @@
 
 #include "my_defaults.h"
 
+
 typedef struct Stack* Stack;
+
+Stack newStack();
+void push(Stack self, int32_t item);
+int32_t pop(Stack self);
+int32_t peek(Stack self);
+void freeStack(Stack self);
+uint32_t getStackLen(Stack self);
+
 
 #endif

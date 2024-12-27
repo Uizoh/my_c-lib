@@ -83,3 +83,4 @@ void freeStack(Stack self) {
 uint32_t getStackLen(Stack self) {
     return self->len;
 }
+
