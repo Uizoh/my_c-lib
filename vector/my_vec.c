@@ -1,6 +1,23 @@
 #include "my_defaults.h"
+#include "my_vec.h"
+#include <stdint.h>
 #include <stdlib.h>
 
+
+// For using in Vector struct creation with appropriate types
+typedef enum TypeVec { INT, UINT, FLOAT } TypeVec;
+
+// Vector struct pointer
+typedef struct Vec {
+    uint32_t len;
+    uint32_t capacity;
+    TypeVec type;
+    union {
+        int32_t* _arr_i;
+        uint32_t* _arr_u;
+        float64_t* _arr_f;
+    };
+} *Vec;
 
 void nullcheck(void* ptr){
     assert(ptr != NULL && "Failed to allocate memory for vector");
@@ -67,11 +84,35 @@ void appendVec(Vec self, void* item) {
     self->len += 1;
 }
 
-// TODO: add vector_pop method
+// Removes the item from the given index;
+// Passing -1 as index removes the last element from the vector
+void popVec(Vec self, uint32_t index) {
+    assert(index < -1 || index >= self->len && "Given index exceeds vector lenght");
+
+    if (index == -1) {
+        switch (self->type) {
+            case INT: 
+                self->_arr_i[self->len - 1] = '\0';
+            case UINT: 
+                self->_arr_u[self->len - 1] = '\0';
+            case FLOAT: 
+                self->_arr_f[self->len - 1] = '\0';
+        }
+
+    }
+
+    switch (self->type) {
+        case INT:
+            self->_arr_i[index] = '\0';
+        case UINT:
+            self->_arr_u[index] = '\0';
+        case FLOAT:
+            self->_arr_f[index] = '\0';
+    }
+}
 
 // Get a slice of a Vector array with index bounds;
-// Since Vector arrays are not meant to be directly accessible that is why we slice them
-// into other variables and then access the elements
+// Returns a heap allocated array with elements within the given index
 void* sliceVec(Vec self, uint32_t starting_index, uint32_t last_index) {
     if (self->_arr_i != NULL) {
         int32_t* arr = malloc(self->len * sizeof(int32_t));
@@ -124,3 +165,7 @@ void freeVec(Vec self) {
     self = NULL;
 }
 
+int main() {
+    Vec vec = newVec(INT, 12);
+    return 0;
+}
