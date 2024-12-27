@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <assert.h>
 
 #define len(arr) sizeof(arr) / sizeof(*arr)
 #define rand_between(min, max) rand() % (max - min + 1) + min

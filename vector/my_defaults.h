@@ -4,6 +4,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <assert.h>
 
 #define len(arr) sizeof(arr) / sizeof(*arr)
 #define randBetween(min, max) rand() % (max - min + 1) + min

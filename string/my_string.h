@@ -2,6 +2,7 @@
 #define MY_STRING_
 
 
+#include <stdint.h>
 #include <string.h>
 #define strlens(x) (strlen(x) + 1) // For '\0' character
 
