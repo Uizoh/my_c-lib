@@ -37,16 +37,16 @@ void enqueue(Queue self, int32_t item) {
     if (self->tail == NULL) {
         self->head = tmp_node;
         self->tail = tmp_node;
-        self->len += 1;
     } else {
         self->tail->next = tmp_node;
         self->tail = tmp_node;
-        self->len += 1;
     }
+
+    self->len += 1;
 }
 
 // Removes and frees a Node from the Queue head;
-// Returns the value of the head node or returns NULL if head doesn't exist
+// Returns the value from the head node or returns NULL if head doesn't exist
 int32_t deque(Queue self) {
     if (self->head == NULL) {
         return (int32_t)NULL;
