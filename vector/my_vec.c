@@ -1,6 +1,5 @@
 #include "my_defaults.h"
 #include "my_vec.h"
-#include <stdint.h>
 #include <stdlib.h>
 
 
@@ -165,7 +164,18 @@ void freeVec(Vec self) {
     self = NULL;
 }
 
-int main() {
-    Vec vec = newVec(INT, 12);
-    return 0;
+// Get Vector lenght
+uint32_t getVecLen(Vec self) {
+    return self->len;
 }
+
+// Get Vector capacity
+uint32_t getVecCap(Vec self) {
+    return self->capacity;
+}
+
+// Get Vector type
+TypeVec getVecType(Vec self) {
+    return self->type;
+}
+
