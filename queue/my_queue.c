@@ -1,18 +1,20 @@
 #include "my_queue.h"
-#include <stdint.h>
 #include <stdlib.h>
+
 
 typedef struct Node {
     int32_t value;
     struct Node* next;
 } *Node;
 
+// Queue struct
 typedef struct Queue {
     uint32_t len;
     Node head;
     Node tail;
 } *Queue;
 
+// Creates and returns a heap allocated Queue struct
 Queue newQueue() {
     Queue tmp_queue = malloc(sizeof(struct Queue));
     assert(tmp_queue != NULL && "Queue failed to be allocated in memory");
@@ -24,6 +26,7 @@ Queue newQueue() {
     return tmp_queue;
 }
 
+// Adds an item at the tail of a Queue 
 void enqueue(Queue self, int32_t item) {
     Node tmp_node = malloc(sizeof(struct Node));
     assert(tmp_node != NULL && "Could not allocate memory for Node to insert in Queue");
@@ -42,6 +45,8 @@ void enqueue(Queue self, int32_t item) {
     }
 }
 
+// Removes and frees a Node from the Queue head;
+// Returns the value of the head node or returns NULL if head doesn't exist
 int32_t deque(Queue self) {
     if (self->head == NULL) {
         return (int32_t)NULL;
@@ -59,6 +64,8 @@ int32_t deque(Queue self) {
     return val;
 }
 
+// Returns the value of head Node;
+// Returns NULL if head doesn't exist
 int32_t peek(Queue self) {
     if (self->head == NULL)
         return (int32_t)NULL;
@@ -66,6 +73,7 @@ int32_t peek(Queue self) {
     return self->head->value;
 }
 
+// Frees the whole Queue in memory
 void freeQueue(Queue self) {
     while (self->head != NULL) {
         Node tmp_head = self->head;
@@ -79,3 +87,7 @@ void freeQueue(Queue self) {
     self = NULL;
 }
 
+// Get the lenght of the Queue
+uint32_t getQueueLen(Queue self) {
+    return self->len;
+}
