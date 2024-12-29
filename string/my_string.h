@@ -1,17 +1,12 @@
 #ifndef MY_STRING_
 #define MY_STRING_
 
-
-#include <stdint.h>
+#include "my_defaults.h"
 #include <string.h>
-#define strlens(x) (strlen(x) + 1) // For '\0' character
+
 
 // String struct pointer
-typedef struct String {
-    uint32_t len;
-    uint32_t cap;
-    char* __str;
-} *String;
+typedef struct String *String;
 
 // All the relative functions
 String newString(uint32_t init_size);
@@ -20,6 +15,8 @@ String stringFrom(char* string_value);
 char* getString(String self);
 void resizeString(String self);
 void freeString(String self);
+uint32_t getStringLen(String self);
+uint32_t getStringCap(String self);
 
 
 #endif

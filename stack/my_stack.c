@@ -4,12 +4,13 @@
 typedef struct Node {
     int32_t value;
     struct Node* prev;
-} *Node;
+}* Node;
 
+// Stack struct ponter
 typedef struct Stack {
     uint32_t len;
     Node head;
-} *Stack;
+}* Stack;
 
 // Returns a new heap allocated Stack struct
 Stack newStack() {

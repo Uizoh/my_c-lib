@@ -5,14 +5,14 @@
 typedef struct Node {
     int32_t value;
     struct Node* next;
-} *Node;
+}* Node;
 
-// Queue struct
+// Queue struct pointer
 typedef struct Queue {
     uint32_t len;
     Node head;
     Node tail;
-} *Queue;
+}* Queue;
 
 // Creates and returns a heap allocated Queue struct
 Queue newQueue() {

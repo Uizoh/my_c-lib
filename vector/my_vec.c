@@ -16,7 +16,7 @@ typedef struct Vec {
         uint32_t* _arr_u;
         float64_t* _arr_f;
     };
-} *Vec;
+}* Vec;
 
 void nullcheck(void* ptr){
     assert(ptr != NULL && "Failed to allocate memory for vector");

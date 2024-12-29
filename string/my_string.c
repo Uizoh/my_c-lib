@@ -2,6 +2,15 @@
 #include "my_string.h"
 #include <stdlib.h>
 
+#define strlens(x) (strlen(x) + 1) // For '\0' character
+
+// String struct pointer
+typedef struct String {
+    uint32_t len;
+    uint32_t cap;
+    char* __str;
+}* String;
+
 // Creates a new String struct with a initial size parameter
 String newString(uint32_t init_size) {
     String temp = malloc(sizeof(struct String));
@@ -36,7 +45,9 @@ String stringFrom(char* string_value) {
 }
 
 // Simply get the string from the String struct
-char* getString(String self) { return self->__str; }
+char* getString(String self) {
+    return self->__str;
+}
 
 // Reallocates the String struct's capacity according with it's current lenght;
 // Does nothing if it's already good to go
@@ -56,3 +67,14 @@ void freeString(String self) {
     free(self);
     self = NULL;
 }
+
+// Returns the lenght of the string
+uint32_t getStringLen(String self) {
+    return self->len;
+}
+
+// Returns the capacity of the string
+uint32_t getStringCap(String self) {
+    return self->cap;
+}
+
