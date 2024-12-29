@@ -1,5 +1,5 @@
-#ifndef MY_LINEAR_SEARCH_
-#define MY_LINEAR_SEARCH_
+#ifndef MY_ARRAY_SEARCH_
+#define MY_ARRAY_SEARCH_
 
 #include "my_defaults.h"
 
