@@ -17,7 +17,9 @@ All the libraries are modular.
 2. Vector array
 3. Queue
 4. Stack
+5. Arena Pool(for memory management)
 
 ## Implemented Algorithms:
 1. Linear search
 2. Binary search
+
