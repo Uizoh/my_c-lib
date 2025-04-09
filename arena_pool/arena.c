@@ -24,7 +24,6 @@ ArenaPool arenaNew(uint32_t capacity) {
 
 // Adds given element to an Arena Pool
 void arenaAdd(ArenaPool self, void* item) {
-    // TODO: Add resizing behaviour
     assert(self->len <= self->cap && "Arena Pool capacity was exceded");
 
     self->arr[self->len] = item;
@@ -43,6 +42,8 @@ void arenaFreeElements(ArenaPool self) {
 
 // Deallocates the whole Arena Pool
 void arenaFreeEverything(ArenaPool self) {
+    arenaFreeElements(self);
+    free(self->arr);
     free(self);
     self = NULL;
 }
