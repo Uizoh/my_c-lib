@@ -8,7 +8,7 @@ typedef struct ArenaPool {
     void** arr;
 }* ArenaPool;
 
-// Allocates new Arena Pool and given capacity and returns it
+// Allocates new Arena Pool with given capacity and returns it
 ArenaPool arenaNew(uint32_t capacity) {
     ArenaPool tmp = malloc(sizeof(struct ArenaPool));
     assert(tmp != NULL && "Failed to allocate memory for Arena Pool");
@@ -22,7 +22,7 @@ ArenaPool arenaNew(uint32_t capacity) {
     return tmp;
 }
 
-// Adds given element to an Arena Pool
+// Adds given element to the Arena Pool
 void arenaAdd(ArenaPool self, void* item) {
     assert(self->len <= self->cap && "Arena Pool capacity was exceded");
 
@@ -36,7 +36,7 @@ void arenaFreeLast(ArenaPool self) {
     free(self->arr[self->len]);
 }
 
-// Deallocates all the elements added in a Arena Pool
+// Deallocates all the elements added in the Arena Pool
 void arenaFreeAll(ArenaPool self) {
     for (uint32_t i = 0; i < self->len; i++) {
         free(self->arr[i]);
