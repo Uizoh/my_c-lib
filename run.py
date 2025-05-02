@@ -2,9 +2,8 @@ import sys
 import os
 
 compiler = "gcc"
-comp_flags = "-o"
-other_flags = "-lm -Wall -pedantic"
-sanitizer = "-fsanitize=address -g"
+comp_flags = "-lm -o"
+sanity_flags = "-Wall -pedantic -fsanitize=address -g"
 
 source_file1 = sys.argv[1]
 source_file2 = sys.argv[2]
@@ -12,7 +11,7 @@ target_file = sys.argv[3]
 
 
 result = os.system(
-    f"{compiler} {source_file1} {source_file2} {comp_flags} {target_file} {other_flags} {sanitizer}"
+    f"{compiler} {source_file1} {source_file2} {comp_flags} {target_file} {sanity_flags}"
 )
 
 print("\n============================")
