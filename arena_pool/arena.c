@@ -30,8 +30,14 @@ void arenaAdd(ArenaPool self, void* item) {
     self->len += 1;
 }
 
-// Deallocates the elements added in a Arena Pool
-void arenaFreeElements(ArenaPool self) {
+// Deallocates the last element in the Arena Pool
+void arenaFreeLast(ArenaPool self) {
+    self->len -= 1;
+    free(self->arr[self->len]);
+}
+
+// Deallocates all the elements added in a Arena Pool
+void arenaFreeAll(ArenaPool self) {
     for (uint32_t i = 0; i < self->len; i++) {
         free(self->arr[i]);
         self->arr[i] = NULL;
@@ -40,9 +46,9 @@ void arenaFreeElements(ArenaPool self) {
     self->len = 0;
 }
 
-// Deallocates the whole Arena Pool
-void arenaFreeEverything(ArenaPool self) {
-    arenaFreeElements(self);
+// Deallocates the whole Arena Pool struct along with it's elements
+void arenaFree(ArenaPool self) {
+    arenaFreeAll(self);
     free(self->arr);
     free(self);
     self = NULL;
