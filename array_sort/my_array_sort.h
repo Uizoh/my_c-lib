@@ -3,4 +3,7 @@
 
 #include "my_defaults.h"
 
+
+void quickSort(int32_t* arr, int32_t start, int32_t end);
+
 #endif
