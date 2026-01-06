@@ -52,7 +52,12 @@ void insertionSort(int32_t* arr, uint32_t len) {
 }
 
 
-// Tim-sort algorithm implementation
-void timSort(int32_t* arr, uint32_t len) {
-    
+// Merge sort algorithm implementation
+void merge(int32_t* arr, uint32_t len) {
+
+}
+
+
+void mergeSort(int32_t* arr, uint32_t len) {
+
 }
