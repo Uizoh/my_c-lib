@@ -189,3 +189,8 @@ void bstFree(BST* self) {
     free(self);
 }
 
+// Get size of the BST
+uint32_t bstGetSize(BST* self) {
+    return self->size;
+}
+

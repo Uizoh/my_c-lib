@@ -26,4 +26,7 @@ void bstTraverse(BST* self);
 // Free the all the BNodes and the BST from the heap memory
 void bstFree(BST* self);
 
+// Get size of the BST
+uint32_t bstGetSize(BST* self);
+
 #endif
