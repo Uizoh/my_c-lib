@@ -2,31 +2,32 @@
 #define ARENA_POOL_
 
 #include "my_defaults.h"
+#include <stdlib.h>
 
 
 // Arena Pool struct pointer
-typedef struct ArenaPool* ArenaPool;
+typedef struct ArenaPool ArenaPool;
 
 // Allocates new Arena Pool with given capacity and returns it
-ArenaPool arenaNew(uint32_t capacity);
+ArenaPool* arenaNew(uint32_t capacity);
 
 // Adds given element to the Arena Pool
-void arenaAdd(ArenaPool self, void* item);
+void arenaAdd(ArenaPool* self, void* item);
 
 // Deallocates the last element in the Arena Pool
-void arenaFreeLast(ArenaPool self);
+void arenaFreeLast(ArenaPool* self);
 
 // Deallocates all the elements added in the Arena Pool
-void arenaFreeAll(ArenaPool self);
+void arenaFreeAll(ArenaPool* self);
 
 // Deallocates the whole Arena Pool struct along with it's elements
-void arenaFree(ArenaPool self);
+void arenaFree(ArenaPool* self);
 
 // Get the lenght of Arena Pool
-uint32_t arenaGetLen(ArenaPool self);
+uint32_t arenaGetLen(ArenaPool* self);
 
 // Get the capacity of Arena Pool
-uint32_t arenaGetCap(ArenaPool self);
+uint32_t arenaGetCap(ArenaPool* self);
 
 
 #endif

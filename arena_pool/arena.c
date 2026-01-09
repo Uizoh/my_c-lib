@@ -1,16 +1,15 @@
 #include "arena.h"
-#include <stdlib.h>
 
 // Arena Pool struct pointer
 typedef struct ArenaPool {
     uint32_t len;
     uint32_t cap;
     void** arr;
-}* ArenaPool;
+} ArenaPool;
 
 // Allocates new Arena Pool with given capacity and returns it
-ArenaPool arenaNew(uint32_t capacity) {
-    ArenaPool tmp = malloc(sizeof(struct ArenaPool));
+ArenaPool* arenaNew(uint32_t capacity) {
+    ArenaPool* tmp = malloc(sizeof(struct ArenaPool));
     assert(tmp != NULL && "Failed to allocate memory for Arena Pool");
 
     tmp->arr = malloc(sizeof(void *) * capacity);
@@ -23,7 +22,7 @@ ArenaPool arenaNew(uint32_t capacity) {
 }
 
 // Adds given element to the Arena Pool
-void arenaAdd(ArenaPool self, void* item) {
+void arenaAdd(ArenaPool* self, void* item) {
     assert(self->len <= self->cap && "Arena Pool capacity was exceded");
 
     self->arr[self->len] = item;
@@ -31,13 +30,13 @@ void arenaAdd(ArenaPool self, void* item) {
 }
 
 // Deallocates the last element in the Arena Pool
-void arenaFreeLast(ArenaPool self) {
+void arenaFreeLast(ArenaPool* self) {
     self->len -= 1;
     free(self->arr[self->len]);
 }
 
 // Deallocates all the elements added in the Arena Pool
-void arenaFreeAll(ArenaPool self) {
+void arenaFreeAll(ArenaPool* self) {
     for (uint32_t i = 0; i < self->len; i++) {
         free(self->arr[i]);
         self->arr[i] = NULL;
@@ -47,7 +46,7 @@ void arenaFreeAll(ArenaPool self) {
 }
 
 // Deallocates the whole Arena Pool struct along with it's elements
-void arenaFree(ArenaPool self) {
+void arenaFree(ArenaPool* self) {
     arenaFreeAll(self);
     free(self->arr);
     free(self);
@@ -55,12 +54,13 @@ void arenaFree(ArenaPool self) {
 }
 
 // Get the lenght of Arena Pool
-uint32_t arenaGetLen(ArenaPool self) {
+uint32_t arenaGetLen(ArenaPool* self) {
     return self->len;
 }
 
 // Get the capacity of Arena Pool
-uint32_t arenaGetCap(ArenaPool self) {
+uint32_t arenaGetCap(ArenaPool* self) {
     return self->cap;
 }
+
 

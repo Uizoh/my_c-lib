@@ -2,13 +2,15 @@
 #define MY_QUEUE_
 
 #include "my_defaults.h"
+#include <stdlib.h>
 
-typedef struct Queue* Queue;
 
-void enqueue(Queue self, int32_t item);
-int32_t deque(Queue self);
-int32_t peek(Queue self);
-uint32_t getQueueLen(Queue self);
+typedef struct Queue Queue;
+
+void enqueue(Queue* self, int32_t item);
+int32_t deque(Queue* self);
+int32_t peek(Queue* self);
+uint32_t getQueueLen(Queue* self);
 
 
 #endif

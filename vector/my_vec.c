@@ -4,27 +4,27 @@
 
 
 // For using in Vector struct creation with appropriate types
-typedef enum TypeVec { INT, UINT, FLOAT } TypeVec;
+typedef enum VecType { INT, UINT, FLOAT } VecType;
 
 // Vector struct pointer
 typedef struct Vec {
     uint32_t len;
     uint32_t capacity;
-    TypeVec type;
+    VecType type;
     union {
         int32_t* _arr_i;
         uint32_t* _arr_u;
         float64_t* _arr_f;
     };
-}* Vec;
+} Vec;
 
 void nullcheck(void* ptr){
     assert(ptr != NULL && "Failed to allocate memory for vector");
 }
 
 // Creates a new Vec struct with a Vector type and initial capacity
-Vec newVec(TypeVec type, uint32_t init_cap) {
-    Vec temp = malloc(sizeof(struct Vec));
+Vec* newVec(VecType type, uint32_t init_cap) {
+    Vec* temp = malloc(sizeof(struct Vec));
     nullcheck(temp);
     temp->type = type;
 
@@ -52,7 +52,7 @@ Vec newVec(TypeVec type, uint32_t init_cap) {
 
 // Appends a new element for an exitsting Vector;
 // Reallocates more memory if items exceed the Vector capacity
-void appendVec(Vec self, void* item) {
+void appendVec(Vec* self, void* item) {
     if (self->len >= self->capacity) {
         self->capacity += 50;   // Default lenght growth value
 
@@ -85,16 +85,16 @@ void appendVec(Vec self, void* item) {
 
 // Removes the item from the given index;
 // Passing -1 as index removes the last element from the vector
-void popVec(Vec self, uint32_t index) {
+void popVec(Vec* self, uint32_t index) {
     assert(index < -1 || index >= self->len && "Given index exceeds vector lenght");
 
     if (index == -1) {
         switch (self->type) {
-            case INT: 
+            case INT:
                 self->_arr_i[self->len - 1] = '\0';
-            case UINT: 
+            case UINT:
                 self->_arr_u[self->len - 1] = '\0';
-            case FLOAT: 
+            case FLOAT:
                 self->_arr_f[self->len - 1] = '\0';
         }
 
@@ -112,7 +112,7 @@ void popVec(Vec self, uint32_t index) {
 
 // Get a slice of a Vector array with index bounds;
 // Returns a heap allocated array with elements within the given index
-void* sliceVec(Vec self, uint32_t starting_index, uint32_t last_index) {
+void* sliceVec(Vec* self, uint32_t starting_index, uint32_t last_index) {
     if (self->_arr_i != NULL) {
         int32_t* arr = malloc(self->len * sizeof(int32_t));
 
@@ -145,7 +145,7 @@ void* sliceVec(Vec self, uint32_t starting_index, uint32_t last_index) {
 }
 
 // Deallocates the Vector 
-void freeVec(Vec self) {
+void freeVec(Vec* self) {
     switch (self->type) {
     case INT:
         free(self->_arr_i);
@@ -165,17 +165,17 @@ void freeVec(Vec self) {
 }
 
 // Get Vector lenght
-uint32_t getVecLen(Vec self) {
+uint32_t getVecLen(Vec* self) {
     return self->len;
 }
 
 // Get Vector capacity
-uint32_t getVecCap(Vec self) {
+uint32_t getVecCap(Vec* self) {
     return self->capacity;
 }
 
 // Get Vector type
-TypeVec getVecType(Vec self) {
+VecType getVecType(Vec* self) {
     return self->type;
 }
 
