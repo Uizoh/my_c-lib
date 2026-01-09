@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Binary Search Tree sturct
 typedef struct BST BST;
 
 // Creates a new heap allocated BST and returns a pointer to it
