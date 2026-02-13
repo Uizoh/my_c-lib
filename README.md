@@ -1,7 +1,7 @@
-# A dumb C library I made for learning purposes
-My C library to implement data structures and algorithms. 
+# A naive C library I made for learning purposes
+My C library to implement data structures and algorithms.
 
-**NOTE: Not meant for real life usage!** 
+**NOTE: Not meant for real life usage!**
 
 ---
 
@@ -18,8 +18,12 @@ All the libraries are modular.
 3. Queue
 4. Stack
 5. Arena Pool(for memory management)
+6. Binary Search Tree
 
 ## Implemented Algorithms:
 1. Linear search
 2. Binary search
+3. Quick sort
+4. Insertion sort
+5. Merge sort
 
