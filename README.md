@@ -1,23 +1,23 @@
-# A naive C library I made for learning purposes
+# A naive C DSA library I made for learning purposes
 My C library to implement data structures and algorithms.
 
 **NOTE: Not meant for real life usage!**
 
 ---
 
-For code style, ***Chaotic Good*** naming convention is used.
+For code style, *Zig style* naming convention is used.
 * `snake_case` for variables
 * `camelCase` for functions
 * `PascalCase` for struct/class/types
 
-All the libraries are modular.
+All the implementations are modular.
 
 ## Implemented Data Structures:
-1. String type(Rust inspired)
-2. Vector array
+1. String type (Rust inspired)
+2. Vector/Dynamic array
 3. Queue
 4. Stack
-5. Arena Pool(for memory management)
+5. Arena Pool (for memory management)
 6. Binary Search Tree
 
 ## Implemented Algorithms:
