@@ -23,3 +23,5 @@ result = os.system(f"./{target_file}")
 print("\n============================")
 print(f"Ran with code: {result}", end="")
 print("\n============================")
+
+result = os.system(f"rm ./{target_file}")
