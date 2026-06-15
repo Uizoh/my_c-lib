@@ -2,11 +2,11 @@
 
 
 // Quick-sort algorithm implementation
-int32_t partition(int32_t* arr, int32_t start, int32_t end) {
-    int32_t pivot = end - 1;
-    int32_t i = start - 1;
+int32_t partition(int32_t* arr, int32_t start_idx, int32_t end_idx) {
+    int32_t pivot = end_idx;
+    int32_t i = start_idx - 1;
 
-    for (int32_t j = start; j < end; j++) {
+    for (int32_t j = start_idx; j < end_idx; j++) {
         if (arr[j] < arr[pivot]) {
             i += 1;
 
@@ -26,14 +26,14 @@ int32_t partition(int32_t* arr, int32_t start, int32_t end) {
 }
 
  
-void quickSort(int32_t* arr, int32_t start, int32_t end) {
-    if (start >= end) {
+void quickSort(int32_t* arr, int32_t start_idx, int32_t end_idx) {
+    if (start_idx >= end_idx) {
         return;
     }
 
-    int32_t pivot = partition(arr, start, end);
-    quickSort(arr, start, pivot);
-    quickSort(arr, pivot + 1, end);
+    int32_t pivot = partition(arr, start_idx, end_idx);
+    quickSort(arr, start_idx, pivot - 1);
+    quickSort(arr, pivot + 1, end_idx);
 }
 
 
