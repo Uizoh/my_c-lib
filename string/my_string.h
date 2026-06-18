@@ -1,8 +1,9 @@
 #ifndef MY_STRING_
 #define MY_STRING_
 
-#include "my_defaults.h"
+#include "../my_defaults.h"
 #include <string.h>
+#include <stdlib.h>
 
 
 // String struct pointer

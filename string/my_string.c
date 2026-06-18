@@ -1,6 +1,5 @@
-#include "my_defaults.h"
 #include "my_string.h"
-#include <stdlib.h>
+
 
 #define strlens(x) (strlen(x) + 1) // For '\0' character
 

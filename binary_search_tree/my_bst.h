@@ -1,7 +1,7 @@
 #ifndef MY_BST_IMPL_
 #define MY_BST_IMPL_
 
-#include "my_defaults.h"
+#include "../my_defaults.h"
 #include <stdio.h>
 #include <stdlib.h>
 

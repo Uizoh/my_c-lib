@@ -1,7 +1,7 @@
 #ifndef MY_STACK_
 #define MY_STACK_
 
-#include "my_defaults.h"
+#include "../my_defaults.h"
 #include <stdlib.h>
 
 

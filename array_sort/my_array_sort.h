@@ -1,7 +1,8 @@
 #ifndef MY_ARRAY_SORT_
 #define MY_ARRAY_SORT_
 
-#include "my_defaults.h"
+
+#include "../my_defaults.h"
 
 
 // An in-place array sorting algorithm that takes the array, the starting and ending index as parameters

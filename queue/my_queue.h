@@ -1,7 +1,7 @@
 #ifndef MY_QUEUE_
 #define MY_QUEUE_
 
-#include "my_defaults.h"
+#include "../my_defaults.h"
 #include <stdlib.h>
 
 

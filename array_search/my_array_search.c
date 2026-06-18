@@ -1,5 +1,5 @@
 #include "my_array_search.h"
-#include <stdint.h>
+
 
 // Linear search algorithm that loops through an array and returns the index of the target in the array;
 // Returns -1 if the target is not found in the given array;

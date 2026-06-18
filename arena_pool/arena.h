@@ -1,8 +1,7 @@
 #ifndef ARENA_POOL_
 #define ARENA_POOL_
 
-#include "my_defaults.h"
-#include <stdlib.h>
+#include "../my_defaults.h"
 
 
 // Arena Pool struct pointer

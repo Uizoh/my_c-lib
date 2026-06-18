@@ -1,4 +1,5 @@
 #include "arena.h"
+#include <stdlib.h>
 
 // Arena Pool struct pointer
 typedef struct ArenaPool {

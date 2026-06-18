@@ -2,7 +2,7 @@ import sys
 import os
 
 compiler = "gcc"
-comp_flags = "-lm -o"
+comp_flags = "-lm -Iinclude -o"
 sanity_flags = "-Wall -pedantic -fsanitize=address -g"
 
 source_file1 = sys.argv[1]

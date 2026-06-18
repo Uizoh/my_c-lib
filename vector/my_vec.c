@@ -1,6 +1,4 @@
-#include "my_defaults.h"
 #include "my_vec.h"
-#include <stdlib.h>
 
 
 // For using in Vector struct creation with appropriate types
